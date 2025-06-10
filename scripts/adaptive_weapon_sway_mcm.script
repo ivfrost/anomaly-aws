@@ -1,0 +1,55 @@
+-- Change your defaults from here if you don't have MCM installed. 
+local defaults = {
+    ["hold_breath_kb"] = DIK_keys.DIK_F,
+    ["sway_baseline"] = 1,
+    -- Factors
+    ["holster_factor"] = true,
+    ["combat_factor"] = true,
+    ["health_factor"] = true, -- health level + restedness + satiety
+    ["hold_breath_factor"] = true,
+    ["stim_factor"] = true,
+    -- : Worst case scenario (all penalties) cancel 62.5% of them with all rewards. Best case scenario (no penalties, or reward > penalties + baseline) cancel baseline sway
+    -- Penalty (max = 1.6)
+    ["holster_mult"] = .2,
+    ["combat_time_mult"] = .2, -- this and kpm (kills per minute) in single calculation -> max .6
+    ["combat_kpm_mult"] = .15,
+    ["health_mult"] = .4,
+    ["weight_penalty"] = .2,
+    ["stim_wearoff_mult"] = .4,
+    -- Reward (max = 1)
+    ["hold_breath_mult"] = .75, 
+    ["stim_mult"] = .25,
+    -- Power
+    ["max_combat_power"] = .6
+}
+
+function get_config(key)
+    if ui_mcm then return ui_mcm.get("adaptive_weapon_sway/"..key) else return defaults[key] end
+end
+
+function on_mcm_load()
+    op = {
+        id = "adaptive_weapon_sway", sh = true, gr = {
+            { id = "title", type = "slide", link = "ui_options_slider_player", text ="ui_mcm_adaptive_weapon_sway_title", [[-- size = { 512, 50 },--]] spacing = 20 },
+                { id = "hold_breath_kb", type = "key_bind", val = 2, def = DIK_keys.DIK_F},
+                { id = "hold_breath_kb_mode", type = ui_mcm.kb_mod_radio, val = 2, def = 3, hint = "mcm_kb_mode" , content= { {0,"mcm_kb_mode_press"} , {1,"mcm_kb_mode_dtap"} , {2,"mcm_kb_mode_hold"}}},
+                { id = "divider", type="line" },
+                { id = "holster_factor", type = "check", val = 1, def = true},
+                { id = "combat_factor", type = "check", val = 1, def = true},
+                { id = "health_factor", type = "check", val = 1, def = true},
+                { id = "weight_factor", type = "check", val = 1, def = true},
+                { id = "breath_factor", type = "check", val = 1, def = true},
+                { id = "stim_factor", type = "check", val = 1, def = true},
+            { id = "title_penalties", type = "slide", link = "ui_options_slider_player", text ="ui_mcm_adaptive_weapon_sway_penalties_title", spacing = 20 },
+                { id = "holster_power", type = "track", val = 2, min = .1, max = 1, step = .1, def = .4 },
+                { id = "combat_time_power", type = "track", val = 2, min = .1, max = 1, step = .1, def = .2 },
+                { id = "combat_kpm_power", type = "track", val = 2, min = .1, max = 1, step = .1, def = .1 },
+                { id = "health_power", type = "track", val = 2, min = .1, max = 1, step = .1, def = .2 },
+                { id = "stim_wearoff_power", type = "track", val = 2, min = .1, max = 1, step = .1, def = .2 },
+            { id = "title_rewards", type = "slide", link = "ui_options_slider_player", text ="ui_mcm_adaptive_weapon_sway_title", spacing = 20 },
+                { id = "hold_breath_power", type = "track", val = 2, min = .1, max = 1, step = .1, def = .2 },
+                { id = "stim_power", type = "track", val = 2, min = .1, max = 1, step = .1, def = .2 },
+        },
+    }
+    return op
+end

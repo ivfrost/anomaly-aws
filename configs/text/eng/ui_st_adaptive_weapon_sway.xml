@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MCM -->
+<string_table>
+    <string id="ui_mcm_menu_adaptive_aim">
+        <text>Adaptive Aim</text>
+    </string>
+    <string id="ui_mcm_adaptive_aim_title">
+        <text>Adaptive Aim</text>
+    </string>
+    <string id="ui_mcm_adaptive_aim_hold_breath_kb">
+        <text>Hold Breath Keybind</text>
+    </string>
+    <!-- TODO: Animation select labels -->
+    <string id="ui_mcm_adaptive_aim_holster_factor">
+        <text>Consider holstering stamina</text>
+    </string>
+    <string id="ui_mcm_adaptive_aim_combat_factor">
+        <text>Consider combat variables (duration and kills per minute)</text>
+    </string>
+    <string id="ui_mcm_adaptive_aim_health_factor">
+        <text>Consider health variables (health amount, restedness and satiety)</text>
+    </string>
+    <string id="ui_mcm_adaptive_aim_weight_factor">
+        <text>Consider carry weight</text>
+    </string>
+    <string id="ui_mcm_adaptive_aim_breath_factor">
+        <text>Enable hold breath functionality</text>
+    </string>
+    <string id="ui_mcm_adaptive_aim_stim_factor">
+        <text>Consider stimulants (coke, caffeine, alcohol, cigarettes)</text>
+    </string>
+    <string id="ui_mcm_adaptive_aim_title_penalties">
+        <text>Penalty Multipliers Adjustment</text>
+    </string>
+    <string id="ui_mcm_adaptive_aim_holster_power">
+        <text>Holstering Stamina Power</text>
+    </string>
+    <string id="ui_mcm_adaptive_aim_combat_time_power">
+        <text>Combat Duration Power</text>
+    </string>
+    <string id="ui_mcm_adaptive_aim_combat_kpm_power">
+        <text>Combat Kills Per Minute Power</text>
+    </string>
+    <string id="ui_mcm_adaptive_aim_health_power">
+        <text>Health Power</text>
+    </string>
+    <string id="ui_mcm_adaptive_aim_stim_wearoff_power">
+        <text>Stimulants Wear Off Power</text>
+    </string>
+    <string id="ui_mcm_adaptive_aim_title_rewards">
+        <text>Reward Multipliers Adjustment</text>
+    </string>
+    <string id="ui_mcm_adaptive_aim_hold_breath_power">
+        <text>Hold Breath Power</text>
+    </string>
+    <string id="ui_mcm_adaptive_aim_stim_power">
+        <text>Stimulants Power</text>
+    </string>
+</string_table>
